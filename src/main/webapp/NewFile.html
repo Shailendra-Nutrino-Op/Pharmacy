@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="author" content="www.twitter.com/cheeriottis">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="demoHtml.css">
+</head>
+<style>
+	body{margin:0;}
+.s-media{
+ position: fixed;
+ top: 50px ;
+ right: 0;
+ z-index: 1000;
+ transition:all linear 0.2s ;
+}
+.s-media a:first-child{
+    border-radius: 0 5px 0 0;
+}
+.s-media a:last-child{
+    border-radius: 0 0 5px 0;
+}
+.s-item {
+    display:flex;
+    width: 110px;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+  	justify-content: center;
+  	align-items:center;
+	text-decoration: none;
+
+    transition:all linear 0.2s ;
+}
+.s-item:hover {
+    width:70px;
+    
+}
+
+  
+#sm-open {
+    position: fixed;
+    top: 290px ;
+    right: -60px;
+    border-radius:30px 0px 0px 30px;
+    
+    transition:all linear 0.2s ;
+}
+.facebook {background-color: #305891;}
+.skype {background-color: #27A7E7;}
+.instagram {background-color: #4169e1;}
+.whatsapp {background-color: #25D366; }
+.print {background-color: #7CB0A4;}
+.sm-collapse{right: -60px; }
+	
+</style>
+<script>
+	    $(document).ready(function() {
+	
+	$('#sm-close').click(function(){
+		$('.s-media').addClass('sm-collapse');
+        $('#sm-open').delay(300).css('right', '0');
+	});
+
+    $('#sm-open').click(function(){
+        $('#sm-open').css('right', '-60px');
+        $('.s-media').removeClass('sm-collapse');
+        
+    });
+});
+	
+</script>
+
+<body>
+	
+			<div class="s-media">
+    <a href="Menubar.xhtml" class="s-item facebook" onclick="showLoader()">
+    <i class="fa fa-facebook"></i>
+    <span>Menu</span>
+</a>
+    
+    <a href="contact.jsp" class="s-item skype" onclick="showLoader()">
+    	<span class="fa fa-telegram">Contact</span>
+    </a>
+  
+    <a href="https://www.skype.com" class="s-item instagram">
+    	<span class="fa fa-instagram">Insta</span>
+    </a>
+
+    <a href="https://www.whatsapp.com" class="s-item whatsapp">
+    	<span class="fa fa-whatsapp">Whatsapp</span>
+    </a>
+
+    <a id="sm-close"  class="s-item print">
+        <span class="fa fa-arrow-right"></span>
+    </a>
+
+ </div>
+	
+	
+ <div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

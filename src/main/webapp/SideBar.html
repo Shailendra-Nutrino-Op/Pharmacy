@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<style>
+	body{margin:0;}
+.s-media{
+ position: fixed;
+ top: 50px ;
+ right: 0;
+ z-index: 1000;
+ transition:all linear 0.2s ;
+}
+.s-media a:first-child{
+    border-radius: 0 5px 0 0;
+}
+.s-media a:last-child{
+    border-radius: 0 0 5px 0;
+}
+.s-item {
+    display:flex;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+  	justify-content: center;
+  	align-items:center;
+	text-decoration: none;
+
+    transition:all linear 0.2s ;
+}
+.s-item:hover {
+    width:70px;
+    
+}
+
+  
+#sm-open {
+    position: fixed;
+    top: 290px ;
+    right: -60px;
+    border-radius:30px 0px 0px 30px;
+    
+    transition:all linear 0.2s ;
+}
+.facebook {background-color: #305891;}
+.skype {background-color: #27A7E7;}
+.instagram {background-color: #4169e1;}
+.whatsapp {background-color: #25D366; }
+.print {background-color: #7CB0A4;}
+.sm-collapse{right: -60px; }
+
+	
+</style>
+<script>
+	    $(document).ready(function() {
+	
+	$('#sm-close').click(function(){
+		$('.s-media').addClass('sm-collapse');
+        $('#sm-open').delay(300).css('right', '0');
+	});
+
+    $('#sm-open').click(function(){
+        $('#sm-open').css('right', '-60px');
+        $('.s-media').removeClass('sm-collapse');
+        
+    });
+});
+	
+</script>
+   <script src="https://kit.fontawesome.com/44f455b36e.js" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<div class="s-media">
+    <a href="https://www.facebook.com/saphiredenten" class="s-item facebook">
+    	<span class="fa fa-facebook"></span>
+    </a>
+    
+    <a href="https://www.skype.com" class="s-item skype">
+    	<span class="fa fa-telegram"></span>
+    </a>
+  
+    <a href="https://www.skype.com" class="s-item instagram">
+    	<span class="fa fa-instagram"></span>
+    </a>
+
+    <a href="https://www.whatsapp.com" class="s-item whatsapp">
+    	<span class="fa fa-whatsapp"></span>
+    </a>
+
+    <a id="sm-close"  class="s-item print">
+        <span class="fa fa-arrow-right"></span>
+    </a>
+
+ </div>
+
+ <a id="sm-open"  class="s-item print sm-collapse">
+        <span class="fa fa-arrow-left"></span>
+    </a>
+
+
+</body>
+</html>
