@@ -59,6 +59,8 @@ public class MailSend {
 
             // Now set the actual message
             message.setText(content);
+            
+            message.setContent(message, "text/html");
 
             System.out.println("sending...");
             // Send message

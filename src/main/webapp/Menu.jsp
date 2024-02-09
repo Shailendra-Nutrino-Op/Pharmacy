@@ -7,12 +7,11 @@
     <h:head>
         <title>MenuBar</title>
         <link rel="stylesheet" href="menuBass.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-GLhlTQ8i7uFkLf7sOF1GgU6KQr1R+Kh9v5UTqj8NEyIbGgT5SdIHJFpL/YY4jDZ" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-r4sRIBc7G/qZxXR9jjz1RVc+a2AsOq9sJvq39mr8CsY9w2pXnU7tcHvCO9/twkCJ" crossorigin="anonymous"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"/>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         
     <script>
+   
     
     function search() {
         var searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
@@ -24,9 +23,10 @@
             { name: 'Insurance' , link: 'https://example.com/item2' },
             { name: 'Admin', link: 'Admin.jsp' },
             { name: 'Recipient', link: 'Recipient.jsp' },
-            { name: 'Pharmacy Login', link: 'NewFile.html' },
-            { name: 'Admin Login', link: 'NewFile.html' },
-            { name: 'Recipient Login', link: 'NewFile.html' }            
+            { name: 'Pharmacy Login', link: 'LoginPage.jsp' },
+            { name: 'Admin Login', link: 'LoginPage.jsp' },
+            { name: 'Recipient Login', link: 'LoginPage.jsp' }  ,
+            { name: 'Contact', link: 'contact.jsp' } 
         ];
 
         itemsToSearch.forEach(function (item) {
@@ -61,24 +61,43 @@
         }
     });
 
-    // Automatically hide the results container on pressing Enter key
-    document.getElementById('search-input').addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            var searchResultsContainer = document.getElementById('search-results');
-            searchResultsContainer.style.display = 'none';
-        }
-    });
+    </script>
+        <script>
+        $(document).ready(function(){
+            $(".menu-button").click(function(){
+                $(".menu-bar").toggleClass("open");
+                $(".menu-bar1").removeClass("open"); // Close the other menu if it's open
+            });
 
-    // Show search results on input
-    document.getElementById('search-input').addEventListener('input', search);
+            $(".active").click(function(){
+                $(".menu-bar1").toggleClass("open");
+                $(".menu-bar").removeClass("open"); // Close the other menu if it's open
+            });
 
+            $(document).click(function(e) {
+                // Collapse the menus when clicking anywhere on the document
+                if (!$(e.target).closest('.menu, .menu-bar, .active').length) {
+                    $(".menu-bar").removeClass("open");
+                    $(".menu-bar1").removeClass("open");
+                }
+            });
+        });
+        
+		function showLoader() {
+			document.getElementById('loader').style.display = 'block';
+		}
+		$(document).ready(function() {
+			$(".loader").fadeOut("slow");
+		});
+	        
     </script>
     <style>
-       #search-input {
+             #search-input {
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23424242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" stroke="%23424242"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="%23424242"/></svg>') no-repeat 95% center;
             width: 600px;
             padding: 10px;
             margin: 20px auto;
+            margin-right: 24%;
             box-sizing: border-box;
             border: 2px solid #04040461;
             border-radius: 5px;
@@ -86,9 +105,9 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             display: block;
             font-size: 16px;
+            box-shadow: 0 0 10px rgb(0 0 0 / 68%);
         }
         
-
         #search-results {
             position: absolute;
             width: 600px;
@@ -114,7 +133,6 @@
     
     </style>
     <style>
- 	@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
 .menu, .menu-bar, .menu-bar1 {
     position: fixed;
     top: 0;
@@ -292,30 +310,40 @@
     }
 }
     </style>
-    <script>
-        $(document).ready(function(){
-            $(".menu-button").click(function(){
-                $(".menu-bar").toggleClass("open");
-                $(".menu-bar1").removeClass("open"); // Close the other menu if it's open
-            });
-
-            $(".active").click(function(){
-                $(".menu-bar1").toggleClass("open");
-                $(".menu-bar").removeClass("open"); // Close the other menu if it's open
-            });
-
-            $(document).click(function(e) {
-                // Collapse the menus when clicking anywhere on the document
-                if (!$(e.target).closest('.menu, .menu-bar, .active').length) {
-                    $(".menu-bar").removeClass("open");
-                    $(".menu-bar1").removeClass("open");
-                }
-            });
-        });
-    </script>
-    
+   
     </h:head>
     <h:body>
+    
+             <style>
+        .health-quotes {
+            width: 100%; /* Adjust the width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+       
+        }
+                .health-quotes p img {
+            max-width: 32px; /* Adjust the maximum width of the images */
+            vertical-align: middle;
+            margin-right: 10px; /* Adjust spacing between image and text */
+        }
+
+        .health-quotes p {
+            font-weight: 700;
+        font-family: monospace;
+            display: inline-block;
+            margin-right: 40px; /* Adjust spacing between quotes */
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .articles{
+            font-family: "Montserrat", Sans-serif;
+            line-height: 26px;
+        }
+    </style>
 
 <div style="display: flex">
    
@@ -323,26 +351,33 @@
         <div id="search-results">
         </div>
         <div class="image-cont">
-    	<img src="163800845-removebg-preview.png" alt="Website Logo" width="100" height="100"/>
-</div>
+        <a href="Menu.jsp">
+        <img src="163800845-removebg-preview.png" alt="Website Logo" width="100" height="100" style="    filter: drop-shadow(0px 0px 10px black);"/>
+        </a>
+    	</div>
         </div>
+        <div class="health-quotes">
+    <p><img src="medicine_647237.png" alt="Medicine Icon"/>"Take your medicine as prescribed."</p>
+    <p><img src="lazy_5692446.png" alt="Medicine Icon"/>"Get plenty of rest for a healthy life."</p>
+    <p><img src="physical-activity_4310355.png" alt="Medicine Icon"/>"Don't forget to exercise regularly."</p>
+    <p><img src="immune_9558188.png" alt="Medicine Icon"/>"Take breaks, avoid prolonged sitting."</p>
+    <p><img src="heart_508735.png" alt="Medicine Icon"/>"A healthy outside starts from the inside."</p>
+    <p><img src="hand-dryer_5610168.png" alt="Medicine Icon"/>"Practice good hygiene for a healthier you."</p>
+</div>
 
 		<ul class="menu">
 
       <li title="home"><a href="#" class="menu-button home">menu</a></li>
-      
-      <li title="search"><a href="#" class="search">insurances</a></li>
       <li title="login"><a href="#" class="active about">Login</a></li>
-      <li title="archive"><a href="#" class="archive">archive</a></li>
+      <li title="services"><a href="#" class="archive">services</a></li>
       <li title="contact"><a href="contact.jsp" class="contact">contact</a></li>
     </ul>
     
     <ul class="menu-bar">
-        <li><a href="PharmacyEnrollment.jsp" class="menu-button">Pharmacy</a></li>
+        <li><a href="PharmacyEnrollment.jsp" class="menu-button" onclick="showLoader()">Pharmacy</a></li>
         <li><a href="Provider.jsp">Provider</a></li>
         <li><a href="Recipient.jsp">Patient</a></li>
         <li><a href="#">Insurance</a></li>
-        <li><a href="Admin.jsp">Admin</a></li>
     </ul>
         <ul class="menu-bar1">
         <li><a href="LoginPage.jsp" class="menu-button">Pharmacy Login</a></li>
@@ -359,7 +394,8 @@
             Get 15% off on Medicines
         </div>
         <div class="card-body">
-            <p>Get flat 150/- off on Bills* </p>
+           <a href="#" style="color: black; text-decoration: none;font-weight: 600;"> <p>Get flat 150/- off on Bills* </p></a>
+        
         </div>
     </div>
     <div class="card">
@@ -367,7 +403,7 @@
             Hospital Visit
         </div>
         <div class="card-body">
-            <p>Confirm appointment</p>
+            <a href="#" style="color: black; text-decoration: none;font-weight: 600;"> <p>Confirm appointment </p></a>
         </div>
     </div>
     <div class="card">
@@ -375,16 +411,16 @@
             Video Consult
         </div>
         <div class="card-body">
-            <p>Connent with Doctors</p>
+            <a href="#" style="color: black; text-decoration: none;font-weight: 600;"> <p>Connent with Doctors</p></a>
         </div>
         
     </div>
         </div>
-                <header style="width:80%; margin-left: 12%;">
+                <header style="width:80%; margin-left: 12%;box-shadow: 0 0 10px rgb(0 0 0 / 68%);">
     <h1>Streamlining Healthcare Operations:<br/> The Role of Hospital Management Systems</h1>
   </header>
 
-         <article>
+         <article class="articles">
     <section>
       <h2>Understanding Hospital Management Systems</h2>
       <p class="scroll-p">Hospital Management Systems are comprehensive software solutions designed to automate and streamline the day-to-day operations of a healthcare facility. From patient registration and appointment scheduling to billing and inventory management, HMS integrates various functions into a unified platform.</p>
@@ -401,6 +437,48 @@
         <li><strong>Analytics and Reporting:</strong> Hospital administrators can leverage analytics tools within HMS to gain insights into hospital performance. Data-driven decisions contribute to resource optimization and improved patient outcomes.</li>
       </ul>
     </section>
+    
+    </article>
+    <style>
+       .containers {
+    display: flex;
+    gap:10px;
+    margin-left: 19%;
+   }
+   
+   .sections {
+   background-color: #bec7e9;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 8px;
+    /* background-color: #4082895c; */
+    width: 25%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 68%);
+   }
+   
+   h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+   }
+    </style>
+   
+   <div class="containers">
+ <div class="sections" id="patients">
+    <h2>Patients</h2>
+    <p>122250+</p>
+ </div>
+ <div class="sections" id="departments">
+    <h2>Departments</h2>
+    <p>22+</p>
+ </div>
+ <div class="sections" id="doctors">
+    <h2>Doctors</h2>
+    <p>40+</p>
+ </div>
+</div>
+   
+    <article class="articles">
 
     <section>
       <h2>Implementing HMS for Enhanced Patient Care</h2>
@@ -411,22 +489,35 @@
         <li><strong>Ensuring Compliance:</strong> Hospital Management Systems often come equipped with features that ensure compliance with healthcare regulations. This not only reduces legal risks but also fosters a culture of accountability within the organization.</li>
       </ul>
     </section>
+    <section>
+      <h2>Additional Features and Advancements</h2>
+      <p>As technology continues to evolve, Hospital Management Systems incorporate additional features and advancements to further enhance healthcare operations:</p>
+      <ul>
+        <li><strong>Interoperability:</strong> One of the key advancements in modern Hospital Management Systems is their ability to seamlessly integrate with other healthcare systems. Interoperability ensures a smooth exchange of patient information between different departments and external entities, promoting collaboration and continuity of care.</li>
+        <li><strong>Mobile Accessibility:</strong> Many HMS solutions now offer mobile applications, allowing healthcare providers to access patient data, schedule appointments, and manage tasks on-the-go. This feature enhances the flexibility of healthcare professionals and contributes to more efficient patient care.</li>
+        <li><strong>Telemedicine Integration:</strong> With the rise of telemedicine, integrating telehealth features into Hospital Management Systems has become essential. This integration allows healthcare providers to conduct virtual consultations, monitor patients remotely, and manage telehealth appointments within the same system.</li>
+        <li><strong>Security Measures:</strong> Given the sensitivity of patient data, security is a paramount concern in healthcare. Hospital Management Systems employ robust security measures, including encryption and access controls, to safeguard patient information from unauthorized access and cyber threats.</li>
+        <li><strong>Patient Portal:</strong> Many HMS solutions include patient portals, providing individuals with secure access to their health records, test results, and appointment schedules. Patient portals enhance communication between patients and healthcare providers, fostering a more collaborative approach to healthcare.</li>
+        <li><strong>Cost Savings:</strong> While the initial investment in a Hospital Management System may seem substantial, the long-term cost savings are significant. Automation of processes, reduction in paperwork, and improved resource utilization contribute to overall cost-effectiveness in the long run.</li>
+      </ul>
+</section>
   </article>
+  
   <footer>
     <div class="footer-content">
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="MenuPage.xhtml">Home</a></li>
+                <li><a href="Menu.jsp">Home</a></li>
                 <li><a href="#">Features</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.jsp">Contact</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p>Email: info@hospitalmanagementsystem.com</p>
+            <p>Email: Info@hospitalmanagementsystem.com</p>
             <p>Phone: +91 123-456-7890</p>
             <p>Address: Kundahalli, EPIP Zone, Whitefield, Banglore</p>
         </div>
@@ -441,57 +532,8 @@
     </div>
     <p class="footer-bottom">&copy; 2023 Your Hospital Management System. All rights reserved.</p>
 </footer>
-		<script type="text/javascript">
-		function showLoader() {
-			document.getElementById('loader').style.display = 'block';
-		}
-		$(document).ready(function() {
-			$(".loader").fadeOut("slow");
-		});
-	</script>
 	<div id="loader">
 		<div class="spinner"></div>
-	</div>
-	<style>
-	#loader {
-                    display: none;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #defcf9;
-                    text-align: center;
-                    z-index: 0;
-                }
- 
-                .spinner {
-                    position: absolute;
-                    height: 3em;
-                    width: 3em;
-                    top: 50%;
-                    left: 50%;
-                    box-sizing: border-box;
-                    margin-left: -1.5em;
-                    margin-top: -1.5em;
-                    border: 0.21em solid;
-                    border-color: #E67676 #F2F062 #A9E6E6 #7692E4;
-                    border-radius: 50%;
-                    box-shadow: 0 0 2.4em blue;
-                    opacity: 0.9;
-                    animation: spin 1s infinite linear;
-                }
- 
-                @keyframes spin {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(360deg);
-                    }
-                }
-	
-	</style>
-	          
+	</div>	          
     </h:body>
 </html>

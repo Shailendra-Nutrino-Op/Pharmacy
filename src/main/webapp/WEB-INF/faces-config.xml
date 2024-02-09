@@ -1,58 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee /WEB-INF/schema/web-facesconfig_2_0.xsd" 
-              version="2.0" metadata-complete="false">
-    <!-- This file must be present with our jar, even if it is empty.  Otherwise, our Java annotations won't get scanned! -->
-    <application>
-	  	<message-bundle>
-	  		com.jsf.MyMessage
-	  	</message-bundle>
-     </application>
-<managed-bean>
-	<managed-bean-name>daoImpl</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.EnrollPharmacyImpl</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-	<managed-bean-name>pharma</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.PharmacyDetail</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-	<managed-bean-name>pharmaImpl</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.EnrollPharmacyImpl</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-	<managed-bean-name>pharmaImpl</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.EnrollPharmacyImpl</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-	<managed-bean-name>auth</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.Authentication</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-	<managed-bean-name>enrollController</managed-bean-name>
-   <managed-bean-class>com.java.Pharmacy.EnrollmentController</managed-bean-class>
-   <managed-bean-scope>request</managed-bean-scope>
-        <managed-property>
-            <property-name>daoImpl</property-name>
-            <property-class>com.java.Pharmacy.EnrollPharmacyImpl</property-class>
-            <value>#{daoImpl}</value>
-    </managed-property>
-    <managed-property>
-            <property-name>pharma</property-name>
-            <property-class>com.java.Pharmacy.PharmacyDetail</property-class>
-            <value>#{pharma}</value>
-    </managed-property>
-</managed-bean>
-<managed-bean>
-    <managed-bean-name>contactBean</managed-bean-name>
-    <managed-bean-class>com.java.Pharmacy.ContactBean</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
-</managed-bean>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee /WEB-INF/schema/web-facesconfig_2_0.xsd"
+	version="2.0" metadata-complete="false">
+	<!-- This file must be present with our jar, even if it is empty. Otherwise, 
+		our Java annotations won't get scanned! -->
+	<application>
+		<message-bundle>
+			com.jsf.MyMessage
+		</message-bundle>
+	</application>
+	<managed-bean>
+		<managed-bean-name>daoImpl</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.EnrollPharmacyImpl
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pharma</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.PharmacyDetail
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>pharmaImpl</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.EnrollPharmacyImpl
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>enrollController</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.EnrollmentController
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>daoImpl</property-name>
+			<property-class>com.java.Pharmacy.EnrollPharmacyImpl</property-class>
+			<value>#{daoImpl}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>pharma</property-name>
+			<property-class>com.java.Pharmacy.PharmacyDetail</property-class>
+			<value>#{pharma}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>auth</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.Authentication
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>contactBean</managed-bean-name>
+		<managed-bean-class>com.java.Pharmacy.ContactBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<!--Sales search -->
+	<managed-bean>
+		<managed-bean-name>medicinesDao</managed-bean-name>
+		<managed-bean-class>com.java.sfp.MedicineSalesDAOImpl
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>medicine</managed-bean-name>
+		<managed-bean-class>com.java.sfp.MedicineSales</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>paginationDao</managed-bean-name>
+		<managed-bean-class>com.java.sfp.JsfPaginationBean
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<!-- <managed-bean> <managed-bean-name>pagination2Dao</managed-bean-name> 
+		<managed-bean-class>com.java.sfp.JsfPagination2</managed-bean-class> <managed-bean-scope>request</managed-bean-scope> 
+		</managed-bean> <managed-bean> <managed-bean-name>newimpl</managed-bean-name> 
+		<managed-bean-class>com.java.sfp.NewImpl</managed-bean-class> <managed-bean-scope>request</managed-bean-scope> 
+		</managed-bean> -->
+	<!-- Reset password -->
+
+	<managed-bean>
+		<managed-bean-name>pharmaOldpass</managed-bean-name>
+		<managed-bean-class>com.java.jsf.PharmacyOldpass</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pharmaOldpassImpl</managed-bean-name>
+		<managed-bean-class>com.java.jsf.PharmacyOldPassImpl
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>oldpharmacontro</managed-bean-name>
+		<managed-bean-class>com.java.jsf.PharmacyOldPasscontroller
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>pharmaOldpass</property-name>
+			<property-class>com.java.jsf.PharmacyOldpass</property-class>
+			<value>#{pharmaOldpass}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>pharmaOldpassImpl</property-name>
+			<property-class>com.java.jsf.PharmacyOldPassImpl</property-class>
+			<value>#{pharmaOldpassImpl}</value>
+		</managed-property>
+	</managed-bean>
+	<!-- Update Equipments -->
+	<managed-bean>
+		<managed-bean-name>mainImpl</managed-bean-name>
+		<managed-bean-class>com.java.hib.MainImpl</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>paginationDao</managed-bean-name>
+		<managed-bean-class>com.java.hib.JsfPaginationBean
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>paginationTotal</managed-bean-name>
+		<managed-bean-class>com.java.hib.TotalPagination</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>medicines</managed-bean-name>
+		<managed-bean-class>com.java.hib.Medicines</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>medController</managed-bean-name>
+		<managed-bean-class>com.java.hib.MedicinesController
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
 
 </faces-config>

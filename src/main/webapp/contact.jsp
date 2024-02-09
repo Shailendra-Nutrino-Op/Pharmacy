@@ -60,7 +60,7 @@ form:hover {
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 	/* Additional hover effects */
 	transform: scale(1.01); /* Scale up the form on hover */
-	background-color: #f0f0f0; /* Change background color on hover */
+	background-color:##f0f0f0; /* Change background color on hover */
 }
 
 label {
@@ -148,6 +148,7 @@ h:outputLabel {
     min-height: 100px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    margin-left: -79px;
     padding: 8px;
     box-sizing: border-box;
     resize: vertical;
@@ -458,10 +459,8 @@ margin-top: 234px;
    		<ul class="menu">
 
       <li title="home"><a href="#" class="menu-button home">menu</a></li>
-      
-      <li title="search"><a href="#" class="search">search</a></li>
       <li title="login"><a href="#" class="active about">Login</a></li>
-      <li title="archive"><a href="#" class="archive">archive</a></li>
+      <li title="archive"><a href="#" class="archive">Services</a></li>
       <li title="contact"><a href="contact.jsp" class="contact">contact</a></li>
     </ul>
     
@@ -469,7 +468,6 @@ margin-top: 234px;
         <li><a href="PharmacyEnrollment.jsp" class="menu-button">Pharmacy</a></li>
         <li><a href="Provider.jsp">Provider</a></li>
         <li><a href="Recipient.jsp">Patient</a></li>
-        <li><a href="#">Insurance</a></li>
         <li><a href="Admin.jsp">Admin</a></li>
     </ul>
         <ul class="menu-bar1">
@@ -492,10 +490,12 @@ margin-top: 234px;
         <br/>
 
         <h:outputLabel for="message">Message:</h:outputLabel>
-        <h:inputTextarea id="message" value="#{contactBean.message}" rows="5" cols="30" required="true" styleClass="message-input" />
-         <br/>
+        <div style="display: flex;justify-content: space-around;">
+                <h:inputTextarea id="message" value="#{contactBean.message}" rows="5" cols="30" required="true" styleClass="message-input" />
+         
 
         <h:commandButton value="Submit" action="#{enrollController.submitForm(contactBean)}" onclick="showLoader()"/>
+        </div>
 
     </h:form>
     <script type="text/javascript">

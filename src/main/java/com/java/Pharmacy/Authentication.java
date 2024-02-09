@@ -45,6 +45,12 @@ public class Authentication {
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
+	@Override
+	public String toString() {
+		return "Authentication [authId=" + authId + ", pharmId=" + pharmId + ", email=" + email + ", password="
+				+ password + ", status=" + status + ", otp=" + otp + "]";
+	}
+	
 	
 	
 

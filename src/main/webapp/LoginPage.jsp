@@ -8,8 +8,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 body {
     font-family: cursive; /* Specify the font stack */
@@ -32,14 +35,21 @@ h2 {
 form {
     max-width: 400px;
         margin: 0 auto;
-      background-color: #f5f5f5ad; /* Set the background color */
+      background-color: #f5f5f538; /* Set the background color */
     padding: 50px; /* Add padding to the form content */
     border: 1px solid #ccc;
     border-radius: 8px; /* Add rounded corners for a nicer appearance */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-        margin-top: 100px;
+        box-shadow: 0 0 10px 11px rgba(0, 0, 0, 0.1);/* Add a subtle box shadow */
+       margin-top: 60px;
     
     }
+    .labels {
+	display: inline-block;
+	width: 90%;
+	padding: 5px;
+	margin-top: 10px;
+	font-weight: 600;
+}
     input[type="text"] {
     width: 95%;
     padding: 8px;
@@ -62,18 +72,21 @@ input[type="text"]:focus {
     box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
     outline: none;
 }
- input[type="submit"], input[type="reset"] {
+
+
+input[type="submit"], input[type="reset"] {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 10px;
+    padding: 9px 174px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-top: 36px;
     font-size: 16px;
     text-align: center;
     text-transform: uppercase;
     transition: background-color 0.3s ease-in-out;
-        margin-left: 38%;
+    
 }
 
 input[type="submit"]:hover, input[type="reset"]:hover {
@@ -447,8 +460,6 @@ h1.addEventListener("input", function() {
     		<ul class="menu">
 
       <li title="home"><a href="#" class="menu-button home">menu</a></li>
-      
-      <li title="search"><a href="#" class="search">search</a></li>
       <li title="login"><a href="#" class="active about">Login</a></li>
       <li title="archive"><a href="#" class="archive">archive</a></li>
       <li title="contact"><a href="contact.jsp" class="contact">contact</a></li>
@@ -458,7 +469,6 @@ h1.addEventListener("input", function() {
         <li><a href="PharmacyEnrollment.jsp" class="menu-button">Pharmacy</a></li>
         <li><a href="Provider.jsp">Provider</a></li>
         <li><a href="Recipient.jsp">Patient</a></li>
-        <li><a href="#">Insurance</a></li>
         <li><a href="Admin.jsp">Admin</a></li>
     </ul>
         <ul class="menu-bar1">
@@ -467,22 +477,112 @@ h1.addEventListener("input", function() {
         <li><a href="LoginPage.jsp">Patient Login</a></li>
         <li><a href="LoginPage.jsp">Admin Login</a></li>
     </ul>
-    
-        <h1 contenteditable data-heading="Login">Login</h1>
+   
+          <h2 style=" font-family: impact, sans-serif;
+    text-transform: uppercase;
+  color: #007bff;
+    font-size: 4.4rem; margin-top: 65px;
+        margin-left: -35px;
+  text-shadow: 0 4px 26px #000;  -webkit-text-stroke: 1px #000000ad;">Login</h2>
     
 	<h:form>
             
-                <h:outputLabel for="username">Username:</h:outputLabel>
-                <h:inputText  required="true" />
+                <h:outputLabel for="username" styleClass="labels">Username:</h:outputLabel>
+                <h:inputText  required="true" value="#{pharma.email }"/>
 
-                <h:outputLabel for="password">Password:</h:outputLabel>
-                <h:inputText id="password" required="true" />
+                <h:outputLabel for="password" styleClass="labels">Password:</h:outputLabel>
+                <h:inputText id="password" required="true" value="#{pharma.password}"/>
 
-                <h:commandButton value="Login" action="#{loginBean.login}" />
-    
+                <h:commandButton value="Login" action="#{pharmaImpl.loginPharmacy(pharma)}" />  <br/><br/>
+             &nbsp;&nbsp;&nbsp;  <h4> <h:outputText value="#{error}"/>  </h4>
         </h:form>
+        <style>
+        footer {
+	background-color: #300c0ca3;
+	color: #fff;
+	padding: 20px 0;
+	margin-top: 37px;
+	border-radius: 10px;
+}
+ 
+.footer-content {
+	display: flex;
+	justify-content: space-around;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+ 
+.footer-section {
+	flex: 1;
+	padding: 0 20px;
+}
+ 
+h3 {
+	font-size: 18px;
+}
+ 
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+ 
+li {
+	margin-bottom: 10px;
+}
+ 
+a {
+	color: #fff;
+	text-decoration: none;
+}
+ 
+a:hover {
+	text-decoration: underline;
+}
+ 
+.social-icon {
+	font-size: 24px;
+	margin-right: 10px;
+	color: #fff;
+}
+ 
+.footer-bottom {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 14px;
+}
+        </style>
 
-	
+	<footer>
+		<div class="footer-content">
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="MenuPage.xhtml">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+ 
+			<div class="footer-section">
+				<h3>Contact Us</h3>
+				<p>Email: info@hospitalmanagementsystem.com</p>
+				<p>Phone: +91 123-456-7890</p>
+				<p>Address: Kundahalli, EPIP Zone, Whitefield, Banglore</p>
+			</div>
+ 
+			<div class="footer-section">
+				<h3>Connect with Us</h3>
+				<a href="#" class="social-icon"><i class="f"></i></a>
+				<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a> <a
+					href="#" class="social-icon"><i class="fab fa-linkedin"></i></a> <a
+					href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+			</div>
+		</div>
+ 
+		<p class="footer-bottom">&copy; 2023 Your Hospital Management
+			System. All rights reserved.</p>
+	</footer>
 </body>
 </html>
 </f:view>

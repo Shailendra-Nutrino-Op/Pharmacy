@@ -7,8 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <style type="text/css">
 /* styles.css */
 
@@ -366,7 +365,7 @@ margin-top: 234px;
 
       <li title="home"><a href="#" class="menu-button home">menu</a></li>
       
-      <li title="search"><a href="#" class="search">insurances</a></li>
+      <li title="insurance"><a href="#" class="search">insurances</a></li>
       <li title="login"><a href="#" class="active about">Login</a></li>
       <li title="archive"><a href="#" class="archive">archive</a></li>
       <li title="contact"><a href="contact.jsp" class="contact">contact</a></li>
@@ -392,7 +391,7 @@ margin-top: 234px;
 <div class="new-container">
 		<div class="s-media">
     <a href="Menu.jsp" class="s-item facebook" onclick="showLoader()">
-    	<span class="fa fa-facebook">Menu</span>
+    	<span class="fa">Menu</span>
     </a>
     
     <a href="contact.jsp" class="s-item skype" onclick="showLoader()">
@@ -400,7 +399,7 @@ margin-top: 234px;
     </a>
   
     <a href="https://www.skype.com" class="s-item instagram" onclick="showLoader()">
-    	<span class="fa fa-instagram">Insta</span>
+    	<span class="fa">Insta</span>
     </a>
 
     <a href="https://www.whatsapp.com" class="s-item whatsapp" onclick="showLoader()">

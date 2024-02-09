@@ -364,7 +364,7 @@ margin-top: 234px;
 
       <li title="home"><a href="#" class="menu-button home">menu</a></li>
       
-      <li title="search"><a href="#" class="search">insurances</a></li>
+      <li title="insurance"><a href="#" class="search">insurances</a></li>
       <li title="login"><a href="#" class="active about">Login</a></li>
       <li title="archive"><a href="#" class="archive">archive</a></li>
       <li title="contact"><a href="contact.jsp" class="contact">contact</a></li>
@@ -389,7 +389,7 @@ margin-top: 234px;
 
   		<div class="s-media">
     <a href="Menu.jsp" class="s-item facebook" onclick="showLoader()">
-    <i class="fa fa-facebook"></i>
+    <i class="fa"></i>
     <span>Menu</span>
 </a>
     
@@ -398,7 +398,7 @@ margin-top: 234px;
     </a>
   
     <a href="https://www.skype.com" class="s-item instagram">
-    	<span class="fa fa-instagram">Insta</span>
+    	<span class="fa">Insta</span>
     </a>
 
     <a href="https://www.whatsapp.com" class="s-item whatsapp">

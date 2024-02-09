@@ -36,5 +36,11 @@
         <property generated="never" lazy="false" name="regulatory" optimistic-lock="true" type="java.lang.String" unique="false">
             <column name="REGULATORY"/>
         </property>
+        <property generated="never" lazy="false" name="secu_Answer" optimistic-lock="true" type="java.lang.String" unique="false">
+            <column name="SECU_ANSWER"/>
+        </property>
+        <property generated="never" lazy="false" name="secu_Question" optimistic-lock="true" type="java.lang.String" unique="false">
+            <column name="SECU_QUESTION"/>
+        </property>
     </class>
 </hibernate-mapping>

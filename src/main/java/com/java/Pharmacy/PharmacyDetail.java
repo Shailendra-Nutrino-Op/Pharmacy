@@ -14,6 +14,31 @@ public class PharmacyDetail {
 	private String phone;
 	private String email;
 	private String regulatory;
+	private String password;
+	private String secu_Question;
+	private String secu_Answer;
+	
+	
+	
+	public String getSecu_Question() {
+		return secu_Question;
+	}
+	public void setSecu_Question(String secu_Question) {
+		this.secu_Question = secu_Question;
+	}
+	public String getSecu_Answer() {
+		return secu_Answer;
+	}
+	public void setSecu_Answer(String secu_Answer) {
+		this.secu_Answer = secu_Answer;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public String getPharm_id() {
 		return pharm_id;
 	}
@@ -85,8 +110,14 @@ public class PharmacyDetail {
 		return "PharmacyDetail [pharm_id=" + pharm_id + ", shop_name=" + shop_name + ", address=" + address
 				+ ", lic_no=" + lic_no + ", owner_name=" + owner_name + ", regd_no=" + regd_no
 				+ ", date_of_registration=" + date_of_registration + ", qualification=" + qualification + ", phone="
-				+ phone + ", email=" + email + ", regulatory=" + regulatory + "]";
+				+ phone + ", email=" + email + ", regulatory=" + regulatory + ", password=" + password
+				+ ", secu_Question=" + secu_Question + ", secu_Answer=" + secu_Answer + "]";
 	}
+	
+    
+
+	
+	
 	
 	
 	
